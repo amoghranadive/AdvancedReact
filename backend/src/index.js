@@ -8,7 +8,7 @@ server.start(
     {
         cors: {
             credentials: true,
-            progin: process.env.FRONTEND_URL,
+            origin: process.env.FRONTEND_URL,
         }
     }, 
     function onStart(deets) {
