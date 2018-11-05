@@ -25,6 +25,20 @@ const Mutations = {
         }, info);
         
         return item;
+    },
+
+    async deleteItem(parent, args, context, info) {
+
+        const where = { id: args.id };
+
+        // 1. find the id
+        const item = await context.db.query.item({ where }, `{ id title }`);
+
+        // 2. check if the user owns the item
+
+        // 3. Delete
+        const deleted = await context.db.mutation.deleteItem( { where }, info);       
+        return deleted;
     }
 };
 
